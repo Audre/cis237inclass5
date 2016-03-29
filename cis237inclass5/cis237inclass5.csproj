@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +50,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Car.cs">
+      <DependentUpon>Cars.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cars.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cars.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cars.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cars.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cars.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cars.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Cars.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Cars.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Cars.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Cars.edmx</DependentUpon>
+      <LastGenOutput>Cars.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Cars.edmx.diagram">
+      <DependentUpon>Cars.edmx</DependentUpon>
+    </None>
+    <None Include="Cars.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Cars.edmx</DependentUpon>
+      <LastGenOutput>Cars.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
